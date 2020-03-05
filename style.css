@@ -3,11 +3,17 @@
 } */
 
 * {
-  font-size: 12px;
+  font-size: 14px;
+}
+
+.column {
+    /* text-align: center;
+    align-content: center; */
 }
 
 .certificate{
     text-align: center;
+    /* align-items: center; */
 }
 table{
     /* empty-cells: hide; */

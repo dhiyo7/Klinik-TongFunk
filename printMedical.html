@@ -21,13 +21,18 @@
 var data = JSON.parse(localStorage.getItem('dataMedical'));
 console.log(data);
 const exp = document.querySelector('#export');
-let expData = `<div class="certificate">
+let expData = `
+<div style="margin-left: 7%">
+      <img src="medika_kop.jpeg"/>
+    </div>
+<div class="certificate">
+
    <p>健康 証 明 書 (Medical Certificate)</p>
 </div>
 <div class="certificate">
    <p>This Certificate is issued under the of regulation I/9 of STCW conversion, 1978, as amended.</p>
 </div>
-<div class="container">
+<div class="container" align="center">
 <table border="1" style="width:100%">
    <tr>
      <td colspan="6">氏名: Name: ${data.name}</td>
@@ -75,7 +80,7 @@ let expData = `<div class="certificate">
           (Date of last exam in expiry date)</td>
       <td align="center" colspan="2" rowspan="2"> ${data.colorVision}</td>
       <td rowspan="2" align="center">血糖 Blood glucose</td>
-      <td colspan="3" rowspan="2" align="center">${data.bloodGlucose}</td>
+      <td colspan="3" rowspan="2" align="center">♦ ${data.bloodGlucose}</td>
     </tr>
     <tr></tr>
     <tr></tr>
@@ -84,19 +89,19 @@ let expData = `<div class="certificate">
      <td colspan="2" rowspan="2" style="border-right: none;">右 Right</td>
      <td  style="border-left: none;" align="right">( ${data.rightDistane} )</td>
      <td rowspan="6">血中脂質檢查 <br> Blood Lipid exam</td>
-     <td colspan="4" rowspan="2">LDLコレステロール <br>LDL Cholestrol <div style="float: right">${data.LDL}</div></td>
+     <td colspan="4" rowspan="2">LDLコレステロール <br>LDL Cholestrol <div style="float: right">♦ ${data.LDL}</div></td>
    </tr>
    <tr></tr>
    <tr>
      <td colspan="2" rowspan="2" style="border-right: none;">左 Left</td>
     <td  style="border-left: none;" align="right">( ${data.leftDistane} )</td>
-     <td colspan="3" rowspan="2">中性脂肪<br>Triglyceride <div style="float: right">${data.trilyceride}</div></td>
+     <td colspan="3" rowspan="2">中性脂肪<br>Triglyceride <div style="float: right">♦ ${data.trilyceride}</div></td>
    </tr>
    <tr></tr>
    <tr>
      <td colspan="2" rowspan="2" style="border-right: none;">両 Combined</td>
          <td  style="border-left: none;" align="right">( ${data.combineDistane} )</td>
-     <td colspan="3" rowspan="2">HDLコレステロール <br> HDL Cholestrol <div style="float: right">${data.HDL}</div></td>
+     <td colspan="3" rowspan="2">HDLコレステロール <br> HDL Cholestrol <div style="float: right">♦ ${data.HDL}</div></td>
    </tr>
    <tr></tr>
    <tr>
@@ -105,25 +110,40 @@ let expData = `<div class="certificate">
      <td colspan="2" rowspan="3" style="border-right: none;">左 Left</td>
      <td  style="border-left: none;" align="right">( ${data.rightHearing} )</td>
      <td rowspan="9">肝機能検査 Hepatic function exam</td>
-     <td colspan="3" rowspan="3">GOT <br>Gluetamic oxaloacetic <br>transaminase <div style="float: right">${data.GOT}</div></td>
+     <td colspan="3" rowspan="3">GOT <br>Gluetamic oxaloacetic <br>transaminase <div style="float: right">♦ ${data.GOT}</div></td>
    </tr>
    <tr></tr>
    <tr></tr>
    <tr>
      <td colspan="2" style="border-right: none;">右 Right</td>
      <td  style="border-left: none;" align="right">( ${data.leftHearing} )</td>
-     <td colspan="3" rowspan="3">GPT <br>Gluematic pyruvic <br>transaminase <div style="float: right">${data.GPT}</div></td>
+     <td colspan="3" rowspan="3">GPT <br>Gluematic pyruvic <br>transaminase <div style="float: right">♦ ${data.GPT}</div></td>
    </tr>
    <tr></tr>
    <tr></tr>
    <tr>
      <td colspan="3">握力 <br> Grip</td>
      <td colspan="3" align="center">${data.grip === 'Right' ? '右 Right' : '左 Left' }</td>
-
-     <td colspan="3" rowspan="3">γ - GTP <br>γ - glutanyl <br>transpeptidase <div style="float: right">${data.GTP}</div></td>
+     <td colspan="3" rowspan="3">γ - GTP <br>γ - glutanyl <br>transpeptidase <div style="float: right">♦ ${data.GTP}</div></td>
    </tr>
+
+
+   <tr>
+    <td width="5%" colspan="3" align="center" rowspan="2">検便 Stool exam.</td>
+    <td colspan="2">虫卵<br>Parasite Egg</td>
+    <td>▼ ${data.parasite}</td>
+    </tr>
+
+    <tr>
+    <td colspan="2">ヘモグロビン<br>Hemoglobin</td>
+    <td>♦ ${data.hemoglobine}</td>
+    </tr>
+
+
+
    <tr></tr>
-   <tr></tr>
+   
+   
    <tr>
      <td align="center" width="5%" rowspan="16">
        胸<br>部<br>エ<br>ッ<br>ク<br>ス<br>線<br>検<br>査<br>Cheast <br>X-ray <br>exam
@@ -172,14 +192,14 @@ let expData = `<div class="certificate">
    </tr>
    <tr></tr>
    <tr>
-     <td colspan="6" rowspan="3">かくたん檢查 <br> Sputum exam. <div style="float: right; margin-right: 10px;">${data.sputum}</div></td>
+     <td colspan="6" rowspan="3">かくたん檢查 <br> Sputum exam. <div style="float: right; margin-right: 10px;">♦ ${data.sputum}</div></td>
      <td colspan="2" rowspan="2">判定<br>Diagnosis</td>
      <td align="center" style="" colspan="2" rowspan="2">${data.fit ? '合 <br> Fit' : '否 <br> Unfit'}</td>
    </tr>
    <tr></tr>
    <tr></tr>
    <tr>
-     <td rowspan="3" colspan="6">心電図検査 <br> Electrocardiogram exam. <div style="float: right; margin-right: 10px;">${data.electrocardiogram}</div></td>
+     <td rowspan="3" colspan="6">心電図検査 <br> Electrocardiogram exam. <div style="float: right; margin-right: 10px;">♦ ${data.electrocardiogram}</div></td>
      <td colspan="2" rowspan="2">判定年月日 <br> Date of diagnosis</td>
      <td rowspan="2" colspan="2" align="center">${data.dateDiagnosis}</td>
    </tr>
@@ -201,7 +221,7 @@ let expData = `<div class="certificate">
    <tr></tr>
    <tr height="50">
      <td style="border-right: none" colspan="8">※船員の氏名·生年月日については明瞭に記入すること。<br> Write name and date of birth in clear block style</td>
-     <td style="border-left: none" valign="bottom" colspan="2">Feb 2012 by JMS</td>
+     <td style="border-left: none" valign="bottom" colspan="2"></td>
    </tr>
  </table>
 </div>`
