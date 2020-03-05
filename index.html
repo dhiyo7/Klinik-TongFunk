@@ -101,16 +101,16 @@
 
                     Blood Type :
 										<select id="bloodtype">
-											<option value="A">A</option>
-											<option value="B">B</option>
-											<option value="AB">AB</option>
-											<option value="O">O</option>
+											<option value="A / +">A / +</option>
+											<option value="B / +">B / +</option>
+											<option value="AB / +">AB / +</option>
+											<option value="O / +">O / +</option>
 										</select>
 										<br>
 
                     Blood preusre <br>
-										Systotic : <input type="text" id="systotic">
-                    Diastotic : <input type="text" id="diastotic"><br>
+										Systotic : <input type="text" id="systolic">
+                    Diastotic : <input type="text" id="diastolic"><br>
 
                     Blood Glucose : <input type="text" id="bloodGlucose"><br>
 
@@ -210,8 +210,8 @@
         const albumin = document.querySelector('#albumin');
         const sugar = document.querySelector('#sugar');
         // const bloodtype = document.querySelector('#bloodtype');
-        const systotic = document.querySelector('#systotic');
-        const diastotic = document.querySelector('#diastotic');
+        const systotic = document.querySelector('#systolic');
+        const diastotic = document.querySelector('#diastolic');
         const bloodtype = document.querySelector('#bloodtype');
         const bloodGlucose = document.querySelector('#bloodGlucose');
         const LDL = document.querySelector('#LDL');
@@ -256,8 +256,8 @@
 					data.albumin = albumin.value
 					data.sugar = sugar.value
 					data.bloodtype = bloodtype.value
-					data.systotic = systotic.value
-					data.diastotic = diastotic.value
+					data.systolic = systolic.value
+					data.diastolic = diastolic.value
 					data.bloodGlucose = bloodGlucose.value
 					data.LDL = LDL.value
 					data.trilyceride = trilyceride.value
